@@ -1,0 +1,67 @@
+form {
+    display: grid;
+    grid-template-areas:
+    "content content"
+    "btn1 btn2";
+    grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
+    padding: 2%;
+}
+form fieldset {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin: auto 0;
+    row-gap: 0.5em;
+}
+legend {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+label {
+    width: fit-content;
+    font-family:var(--default-body-font, sans-serif);
+}
+input, textarea, select {
+    font-family:var(--default-body-font, sans-serif);
+    font-weight: 300;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 0.9em;
+}
+button {
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+textarea:placeholder-shown, input:placeholder-shown {
+    border-color: darkgray !important;
+}
+textarea:invalid:required, input:invalid:required {
+    border-color: var(--invalid-field);
+}
+textarea:valid, input:valid {
+    border-color: var(--valid-field);
+}
+textarea:focus, input:focus {
+    outline: 1px var(--default-emph-color) solid;
+}
+textarea:placeholder-shown, input:placeholder-shown {
+    border-color: darkgray !important;
+}
+textarea:invalid:required, input:invalid:required {
+    border-color: var(--invalid-field);
+}
+textarea:valid, input:valid {
+    border-color: var(--valid-field);
+}
+textarea:focus, input:focus {
+    outline: 1px var(--default-emph-color) solid;
+}
+.cancel, .clear{
+    grid-area: "btn1";
+}
+.submit{
+    grid-area: "btn2";
+}

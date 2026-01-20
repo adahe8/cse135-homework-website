@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Carmen's Portfolio Home Page</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Personal website homepage that links Carmen's work, services, resume, musings, hobbies, and contact info.">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="color-scheme" content="light dark">
+
+        <link href="./assets/icons/fried-egg.svg" rel="icon">
+
+        <!--load fonts -->
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,400..700;1,400..700&family=Cutive+Mono&display=swap" rel="stylesheet"> -->
+        <link rel="preload" href="./assets/fonts/rubik.woff2" as="font" crossorigin>
+        <link rel="preload" href="./assets/fonts/cormorant.woff2" as="font" crossorigin>
+        <link rel="preload" href="./assets/fonts/cutive-mono.woff2" as="font" crossorigin>
+
+        <!--load styles -->
+        <link href="./css/index.css" rel="stylesheet">
+        <link href="./css/light.css" media="(prefers-color-scheme: light)" rel="stylesheet">
+        <link href="./css/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+        <style>
+            page-preview {
+                padding: 1rem;
+                display: block;
+                border-bottom: 0.5px solid;
+                transition: background-color 0.2s 0.2s;
+                box-sizing: border-box;
+                border-color: inherit;
+            }
+
+            page-preview:hover {
+                 background-color: var(--emph-color, gray);
+            }
+
+            .see-more {
+                font-family: var(--default-script-font, monospace);
+                font-size: 0.75rem; /* limit caption size */
+                text-decoration: underline;
+            }
+
+            @media (min-width:700px) {
+                body main {
+                    display: grid;
+                    grid-template-areas:
+                        "central side"
+                        "central side";
+                    gap: 0 1rem;
+                    overflow: scroll;
+                }
+                .central-content {
+                    min-width: 25rem;
+                    border-right: 0.5px solid;
+                    grid-area: central;
+
+                }
+                
+                .side-content {
+                    max-width: 50vw;
+                    min-width: 20rem;
+                }
+                
+            }
+            @media (max-width:700px) {
+                body main {
+                    display: grid;
+                    grid-template-areas:
+                        "central"
+                        "side";
+                    gap: 1rem;
+                }
+
+                page-preview {
+                    width: 100vw;
+                    border-top: 0.5px solid;
+                    margin: 0;
+                    border-color: inherit;
+                    background-color: var(--header-bg-color);
+                }
+
+                .side-content > h2,
+                .side-content .see-more {
+                    margin-left: 1rem;
+                }
+            }
+        </style>
+        <script>
+            console.log("Hello fellow developer! Curious about my site, aren't ya? Find the full code here: https://github.com/thecarmechanic/cse134-hw3.");
+        </script>
+    </head>
+    <body>
+        <header>
+            <brand-components>
+                <a href="./home.html">
+                    <img class="logo" src="./assets/icons/portfolio-logo.svg" alt="Egg in frying pan icon">
+                    <h1 style="display:inline;">The Portfolio</h1>
+                </a>
+            </brand-components>
+            <nav class="topnav">
+                <a href="./bio.html">Biography</a>
+                <a href="./projects.html">Projects</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+            <scheme-toggle title="Color scheme switcher" id="schemepanel" style="display:none;">
+                <button class="scheme" aria-pressed="false" value="light">
+                    Light
+                </button>
+                <button class="scheme" aria-pressed="false" value="dark">
+                    Dark
+                </button>
+            </scheme-toggle>
+        </header>
+        <main>
+            <section id="featured" class="central-content">
+                <hgroup style="margin-left: 1rem;">
+                    <h2 class="title">FEATURED STORIES</h2>
+                    <p title="Page description">All about the lead developer, designer, and founder of <em>The Portfolio</em>.</p>
+                </hgroup>
+                <page-preview>
+                    <a href="./bio.html" title="To Biography page">
+                        <figure>
+                            <picture>
+                                <source media="(width<=480px)" srcset="./assets/images/carmen1-mobile.png">
+                                <source media="(width>480px)" srcset="./assets/images/carmen1-desktop.png">
+                                <img src="./assets/images/carmen1-desktop.png" alt="Photograph of Carmen He in front of a bookshelf.">
+                            </picture>
+                            <figcaption>Carmen He for The Portfolio</figcaption>
+                        </figure>
+                        <hgroup class="article-title">
+                            <h3>Interview: On Dreams and Multitudes</h3>
+                            <p>An exclusive interview with Carmen He on her professional journey, web development, side quests, and dreams.</p>
+                            <p class="author">Carmen He</p>  
+                        </hgroup>
+                    </a>
+                </page-preview>
+                <page-preview>
+                    <a href="./contact.html">
+                        <hgroup class="article-title">
+                            <h3>Want to Connect with Carmen?</h3>
+                            <p>Connect with the editor here.</p>
+                            <p class="author">Carmen He</p>  
+                        </hgroup>
+                    </a>
+                </page-preview>
+            </section>
+            <section id="news" class="side-content">
+                <h2>WORK</h2>
+                <page-preview>
+                    <figure>
+                        <img src="./assets/images/IBM-cropped-compressed.jpg" alt="Photograph of Carmen at a tech competition">
+                        <figcaption>Summer 2025: IBM WatsonX Challenge Kickoff at San Jose, CA</figcaption>
+                    </figure>
+                    <a href="./projects.html" title="Go to Projects page">
+                        <hgroup>
+                            <h3>Projects</h3>
+                            <p>Tour the gallery of Carmen's featured work.</p>
+                        </hgroup>
+                    </a>
+                </page-preview>
+            </section>
+            <section id="sidequest" class="sideContent">
+                <h2>SIDE QUESTS</h2>
+                <page-preview>
+                    <a href="./projects.html#creative" title="To creatiew work">
+                        <figure>
+                            <picture>
+                                <source media="(width<=480px)" srcset="./assets/images/demos-phone/gs-phone.png">
+                                <source media="(width>480px)" srcset="./assets/images/demos-desktop/gs-desk.png">
+                                <img src="./assets/images/bread-desktop.png" alt="Photograph of a cross section of artisan bread ">
+                            </picture>
+                            <figcaption>Art by Canva</figcaption>
+                        </figure>
+                        <hgroup class="article-title">
+                            <h3>Poetry: Garden Snakes</h3>
+                            <p>Reflections on mythical and physical visions of the self.</p>
+                            <p class="author">Carmen He</p>  
+                        </hgroup>
+                    </a>
+                </page-preview>
+                <page-preview>
+                    <a href="./projects.html#side-quests" title="To side quests">
+                        <figure>
+                            <picture>
+                                <source media="(width<=480px)" srcset="./assets/images/demos-phone/dh-phone.png">
+                                <source media="(width>480px)" srcset="./assets/images/demos-desktop/dh-desk.png">
+                                <img src="./assets/images/notebook-desktop.webp" alt="Cartoon drawing of a fountain pen and inkwell">
+                            </picture>
+                            <figcaption>Photo of Wellington Arch by Carmen He</figcaption>
+                        </figure>
+                        <hgroup class="article-title">
+                            <h3>Short Story: Divinely Human</h3>
+                            <p>Musing on idealism, hope, and humanity from the perspective of immortals.</p>
+                            <p class="author">Carmen He</p>  
+                        </hgroup>
+                    </a>
+                </page-preview>
+                <a href="./projects.html" class="seeMore" style="display:block; margin-top: 1rem; margin-bottom: 1rem;">see all &rightarrow;</a>
+            </section>
+        </main>
+        <footer>
+            <div id="emailme">carmen.he0908@gmail.com</div>
+            <nav title="Contact options box" id="contact-methods">
+                <a href="https://www.linkedin.com/in/cahe01/" title="LinkedIn">
+                    <img class="sm-icon" src="./assets/icons/linkedin.svg" height="16" width="16" alt="Linked Logo Icon">
+                </a>
+                <a href="https://www.instagram.com/cloudbirdbrain/" title="Instagram">
+                    <img class="sm-icon" src="./assets/icons/instagram.svg" height="16" width="16" alt="Instagram Logo Icon">
+                </a>
+                <a href="https://github.com/thecarmechanic" title="Github">
+                    <img class="sm-icon" src="./assets/icons/github.svg" height="16" width="16" alt="Github Logo Icon">
+                </a>
+            </nav>
+        </footer>
+        <script src="js/schemes.js"></script>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Carmen's Portfolio</title>
+        <meta charset="utf-8">
+        <meta name="synopsis" content="Carmen's education, technical work, and featured side quests.">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="color-scheme" content="light dark">
+        <link href="./assets/icons/fried-egg.svg" rel="icon">
+
+        <!--load styles -->
+        <link href="./css/index.css" rel="stylesheet">
+        <link href="./css/forms.css" rel="stylesheet">
+        <link href="./css/light.css" media="(prefers-color-scheme: light)" rel="stylesheet">
+        <link href="./css/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+        <style>
+            main {
+                display: flex;
+                flex-direction: column;
+            }
+            main h1, main section {
+                border-bottom: 1px solid var(--border-color);
+            }
+            main section {
+                padding: 0 1rem;
+            }
+            .cards {
+                padding: 0.5rem;
+                align-items: center;
+            }
+            @media(min-width: 720px) {
+                .cards {
+                    display: flex;
+                    overflow: scroll;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    row-gap: 0.5em;
+                }
+            }
+            @media (max-width: 720px) {
+                .cards {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                }
+            }
+            #cardload {
+                text-align: center;
+            }
+            @media (min-width: 940px) {
+                form {
+                    font-size: 1rem;
+                }
+            }
+            @media (max-width: 940px) and (min-width: 720px) {
+                form {
+                    font-size: 0.75rem;
+                }
+            }
+            @media (max-width: 720px) {
+                form {
+                    font-size: 0.75rem;
+                }
+            }
+            project-card:hover {
+                padding: calc(0.75em + 5px);
+            }
+        </style>
+        <script type="module" src="./js/projectcard.js" async></script>
+        <script src="./js/loadprojectdata.js" async></script>
+        <script src="./js/projectcrud.js" async></script>
+    </head>
+    <body>
+        <header>
+            <brand-components>
+                <a href="./home.html">
+                    <img class="logo" src="./assets/icons/portfolio-logo.svg" alt="Egg in frying pan icon">
+                    <h1 style="display:inline;">The Portfolio</h1>
+                </a>
+            </brand-components>
+            <nav class="topnav">
+                <a href="./bio.html">Biography</a>
+                <a href="./projects.html" style="font-weight: var(--bold-weight);">Projects</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+            <scheme-toggle title="Color scheme switcher" id="schemepanel" style="display:none;">
+                <button class="scheme" aria-pressed="false" value="light">
+                    Light
+                </button>
+                <button class="scheme" aria-pressed="false" value="dark">
+                    Dark
+                </button>
+            </scheme-toggle>
+        </header>
+        <main>
+            <h1>PORTFOLIO NEWS</h1>
+            <div id="cardload">
+                <button id="local">Load Local</button>
+                <button id="remote">Load Remote</button>
+            </div>
+            <section id="technical" title="Projects & Technical Work">
+                <hgroup class="subsection">
+                    <h2>TECHNICAL PROJECTS</h2>
+                    <p>A mix of personal, class, and work technical projects that I am particularly proud of, whether it's for the aesthetics, the knowledge I gained, or how much it challenged my skills.</p>
+                </hgroup>
+                <div id="tech_cards" class="cards">
+                    <button class="create">+</button>
+                </div>
+            </section>
+            <section title="Creative Side Projects" id="creative">
+                <hgroup class="subsection">
+                    <h2>ART, WRITING, & TRAVELS</h2>
+                    <p>When I'm not coding, I'm writing stories or indulging in other creative or wordly pursuits. Below are a few recent works.</p>
+                </hgroup>
+                <div id="creative_cards" class="cards">
+                    <button class="create">+</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div id="emailme">carmen.he0908@gmail.com</div>
+            <nav title="Contact options box" id="contact-methods">
+                <a href="https://www.linkedin.com/in/cahe01/" title="LinkedIn">
+                    <img class="sm-icon" src="./assets/icons/linkedin.svg" height="16" width="16" alt="Linked Logo Icon">
+                </a>
+                <a href="https://www.instagram.com/cloudbirdbrain/" title="Instagram">
+                    <img class="sm-icon" src="./assets/icons/instagram.svg" height="16" width="16" alt="Instagram Logo Icon">
+                </a>
+                <a href="https://github.com/thecarmechanic" title="Github">
+                    <img class="sm-icon" src="./assets/icons/github.svg" height="16" width="16" alt="Github Logo Icon">
+                </a>
+            </nav>
+        </footer>
+        <script src="js/schemes.js"></script>
+    </body>
+</html>

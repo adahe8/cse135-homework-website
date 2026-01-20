@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact Form</title>
+        <meta charset="utf-8">
+        <meta name="description" content="All about Carmen, the person behind this site.">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <link href="./assets/icons/fried-egg.svg" rel="icon">
+        <link href="./css/index.css" rel="stylesheet">
+        <style>
+            body main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            form {
+               display: grid;
+               grid-template-areas:
+               "content content"
+               "clear submit";
+               grid-template-columns: 1fr 1fr;
+               min-width: 50%;
+               background-color: var(--default-emph-color);
+               border: 1px black solid;
+               border-radius: 10px;
+               padding: 2%;
+            }
+            form fieldset {
+                grid-area: content;
+                display: flex;
+                flex-direction: column;
+                border: none;
+                margin: auto 0;
+                row-gap: 0.5rem;
+            }
+            legend {
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+            label {
+                width: fit-content;
+                align-self: flex-start;
+                font-family:var(--default-body-font, sans-serif);
+                margin-bottom: -0.5rem;
+            }
+            input, textarea {
+                font-family:var(--default-body-font, sans-serif);
+                font-weight: 300;
+                border-style: solid;
+                border-width: 1px;
+            }
+            button {
+                justify-self: center;
+                align-self: center;
+                border-radius: 10px;;
+            }
+            #clear, #submit{
+                grid-area: clear;
+            }
+            #submit{
+                grid-area: submit;
+            }
+            #charcounter {
+                font-family:var(--default-body-font, sans-serif);
+                font-weight: 300;
+                font-size: 0.75rem;
+            }
+            #infomsg {
+                visibility: hidden;
+                border: 1px orange solid;
+                background-color: #ffffE0;
+                border-radius: 5px;
+                min-width: 50%;
+                padding: 0.5rem;
+                text-align: center;
+            }
+            #errormsg {
+                visibility: hidden;
+                border: 1px red solid;
+                color: red;
+                background-color: rgb(255,241,241,0.9);
+                border-radius: 5px;
+                min-width: 50%;
+                padding: 0.5rem;
+                text-align: center;
+            }
+            textarea:placeholder-shown, input:placeholder-shown {
+                border-color: darkgray !important;
+            }
+            textarea:invalid:required, input:invalid:required {
+                border-color: red;
+            }
+            textarea:valid, input:valid {
+                border-color: blue;
+            }
+            textarea:focus, input:focus {
+                outline: 1px var(--default-emph-color) solid;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <form id="contact" action="https://www.httpbin.org/post" method="post" target="_blank">
+                <fieldset>
+                    <legend>&star;Send me a message!&star;</legend>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" pattern="[A-Za-z_ ]+" placeholder="Some One" required>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="person@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Z]{2,}" required>
+                    <label for="message">Comment</label>
+                    <textarea id="message" name="message" rows="10" cols="30" placeholder="Your message..." minlength="10" maxlength="500" required></textarea>
+                    <label id="charcounter" title="Character limit counter" for="message" form="contact">0/500</label>
+                </fieldset>
+                <button id="clear" type="reset">Clear</button>
+                <button id="submit" type="submit">Submit</button>
+                <input type="text" name="possible_bot" value="true" hidden>
+            </form>
+            <output id="infomsg" for="message charcounter" form="contact">None</output>
+            <output id="errormsg" for="name email" form="contact">None</output>
+        </main>
+    </body>
+
+</html>

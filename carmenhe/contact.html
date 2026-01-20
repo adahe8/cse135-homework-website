@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact Form</title>
+        <meta charset="utf-8">
+        <meta name="description" content="All about Carmen, the person behind this site.">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="./assets/icons/fried-egg.svg" rel="icon">
+
+        <link href="./css/index.css" rel="stylesheet">
+        <link href="./css/light.css" media="(prefers-color-scheme: light)" rel="stylesheet">
+        <link href="./css/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+        <link href="./css/forms.css" rel="stylesheet">
+        <style>
+            body main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            label {
+                margin-bottom: -0.5em;
+            }
+            #contact {
+               min-width: 50%;
+            }
+            #contact fieldset {
+                grid-area: content;
+                display: flex;
+                flex-direction: column;
+                border: none;
+                margin: auto 0;
+                row-gap: 0.5rem;
+            }
+            #clear{
+                grid-area: "btn1";
+            }
+            #charcounter {
+                font-family:var(--default-body-font, sans-serif);
+                font-weight: 300;
+                font-size: 0.75rem;
+                margin-top: -0.5rem;;
+            }
+            #infomsg {
+                visibility: hidden;
+                border: 1px orange solid;
+                background-color: #ffffE0;
+                border-radius: 5px;
+                min-width: 50%;
+                padding: 0.5rem;
+                text-align: center;
+            }
+            #errormsg {
+                visibility: hidden;
+                border: 1px red solid;
+                color: red;
+                background-color: rgb(255,241,241,0.9);
+                border-radius: 5px;
+                min-width: 50%;
+                padding: 0.5rem;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <brand-components>
+                <a href="./home.html">
+                    <img class="logo" src="./assets/icons/portfolio-logo.svg" alt="Egg in frying pan icon">
+                    <h1 style="display:inline;">The Portfolio</h1>
+                </a>
+            </brand-components>
+            <nav class="topnav">
+                <a href="./bio.html">Biography</a>
+                <a href="./projects.html">Projects</a>
+                <a href="./contact.html" style="font-weight: var(--bold-weight);">Contact</a>
+            </nav>
+            <scheme-toggle title="Color scheme switcher" id="schemepanel" style="display:none;">
+                <button class="scheme" aria-pressed="false" value="light">
+                    Light
+                </button>
+                <button class="scheme" aria-pressed="false" value="dark">
+                    Dark
+                </button>
+            </scheme-toggle>
+        </header>
+        <main>
+            <form id="contact" action="https://www.httpbin.org/post" method="post" target="">
+                <fieldset>
+                    <legend>&star;Send me a message!&star;</legend>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" pattern="[A-Za-z_ ]+" placeholder="Some One" required>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="person@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Z]{2,}" required>
+                    <label for="message">Comment</label>
+                    <textarea id="message" name="message" rows="10" cols="30" placeholder="Your message..." minlength="10" maxlength="500" required></textarea>
+                    <label id="charcounter" title="Character limit counter" for="message">0/500</label>
+                </fieldset>
+                <button id="clear" type="reset">Clear</button>
+                <button class="submit" type="submit">Submit</button>
+                <input type="text" name="possible_bot" value="true" hidden>
+                <input type="text" id="field-errors" name="field-errors" style="position: absolute;" hidden>
+            </form>
+            <output id="infomsg" for="message charcounter" form="contact">None</output>
+            <output id="errormsg" for="name email" form="contact">None</output>
+        </main>
+        <footer>
+            <div id="emailme">carmen.he0908@gmail.com</div>
+            <nav title="Contact options box" id="contact-methods">
+                <a href="https://www.linkedin.com/in/cahe01/" title="LinkedIn">
+                    <img class="sm-icon" src="./assets/icons/linkedin.svg" height="16" width="16" alt="Linked Logo Icon">
+                </a>
+                <a href="https://www.instagram.com/cloudbirdbrain/" title="Instagram">
+                    <img class="sm-icon" src="./assets/icons/instagram.svg" height="16" width="16" alt="Instagram Logo Icon">
+                </a>
+                <a href="https://github.com/thecarmechanic" title="Github">
+                    <img class="sm-icon" src="./assets/icons/github.svg" height="16" width="16" alt="Github Logo Icon">
+                </a>
+            </nav>
+        </footer>
+        <script src="js/contact.js"></script>
+        <script src="js/schemes.js"></script>
+    </body>
+
+</html>

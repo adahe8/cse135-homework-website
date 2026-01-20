@@ -1,0 +1,243 @@
+@import "var.css";
+
+/* || GENERAL STYLES */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--font-color);
+}
+
+footer {
+    padding: 1vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-color);
+}
+
+nav {
+    font-family: var(--default-body-font, sans-serif);
+}
+
+h1, h2, h3 {
+    font-family: var(--default-header-font, Times, serif);
+    font-weight: 700;
+    margin: 0.5rem auto;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p, legend, output, ul {
+    font-family: var(--default-body-font, sans-serif);
+    font-weight: 400;
+    margin: 0.5em auto;
+}
+
+a[href] {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s 0.2s;
+}
+
+a[href]:hover, a[href]:active {
+    color: var(--link-color);
+}
+
+figure {
+    font-family: var(--default-script-font, monospace);
+    font-size: 0.75rem; /* limit caption size */
+}
+
+article {
+    box-sizing: border-box;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+button {
+    padding: 0.5em;
+    width:fit-content;
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    color: var(--button-font-color);
+    border-radius: 10px;
+    height: fit-content;
+}
+
+button:hover {
+    padding: 0.5em 0.75em;
+    color: var(--button-hover-color);
+    cursor: pointer;
+}
+
+form {
+    border: 1px solid var(--border-color);
+    background-color: var(--emph-color);
+}
+
+/* || SHARED STYLES */
+header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1vmin;
+    margin-bottom: 2vmin;
+    background-color: var(--header-bg-color);
+    color: var(--font-color);
+}
+
+header .site-logo {
+    object-fit: contain;
+    object-position: 50% 50%;
+}
+
+header .topnav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 1rem;
+}
+
+header scheme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.125em;
+    width: fit-content;
+    border: 0.125em solid var(--border-color);
+    border-radius: calc(infinity * 1px);
+    align-self: center;
+}
+
+scheme-toggle > button {
+    margin: 0;
+    padding-block: 0.25em;
+    padding-inline: 0.5em;
+    border: none;
+    border-radius: calc(infinity * 1px);
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--font-color);
+    font-weight: 700;
+
+    &[aria-pressed='true']{
+        background-color: var(--font-color);
+        color: var(--bg-color);
+    }
+}
+
+scheme-toggle > button:hover {
+    padding-block: 0.25em;
+    padding-inline: 0.5em;
+}
+
+main .author, .subtitle {
+    font-family: var(--default-script-font, monospace);
+}
+
+#contact-methods {
+    display: flex;
+    gap: 1rem;
+}
+
+#contact-methods > a[href] {
+    transition: background-color 0.2s 0.2s;
+    touch-action: auto;
+}
+
+#contact-methods .sm-icon:hover,
+#contact-methods .sm-icon:active {
+    background-color: var(--emph-color);
+}
+
+/* || RESPONSIVE LAYOUT */
+@media (min-width:768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+@media (max-width:768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.delay-reder { /* apply this class to images as site gets more complex*/
+    content-visibility: auto;
+}
+
+/* || SHARED ANIMATIONS */
+* {
+    transition: all 0.2s;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+/* Create a custom animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadeInFromCenter {
+    0% {
+    opacity: 0;
+    transform: scale(0.25); /* Starts smaller */
+    }
+    100% {
+    opacity: 1;
+    transform: scale(1); /* Ends at full size */
+    }
+}
+@keyframes fadeOutFromEdge {
+    0% {
+    opacity: 1;
+    transform: scale(1); /* Starts from full size */
+    }
+    100% {
+    opacity: 1;
+    transform: scale(0.25); /* Shrinks */
+    }
+}
+/* Apply the custom animation to the old and new page states */
+::view-transition-old(root) {
+  animation: 1s fadeOutFromEdge;
+}
+::view-transition-new(root) {
+  animation: 1s ease-in fadeInFromCenter;
+}

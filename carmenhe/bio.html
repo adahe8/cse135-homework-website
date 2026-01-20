@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Carmen's Biography</title>
+        <meta charset="utf-8">
+        <meta name="description" content="All about Carmen, the person behind this site.">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="./assets/icons/fried-egg.svg" rel="icon">
+
+        <link href="./css/index.css" rel="stylesheet">
+        <link href="./css/light.css" media="(prefers-color-scheme: light)" rel="stylesheet">
+        <link href="./css/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+        <style>
+            article {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+            hgroup {
+                padding: 1rem;
+                background-color: rgba(255, 255, 255, 0.6);
+                text-align: center;
+            }
+            .question {
+                width: 100%;
+
+            }
+            .titleImg {
+                width: 100%;
+                height: 20vh;
+            }
+            .titleImg > img {
+                object-fit: contain;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+         <header>
+            <brand-components>
+                <a href="./home.html">
+                    <img class="logo" src="./assets/icons/portfolio-logo.svg" alt="Egg in frying pan icon">
+                    <h1 style="display:inline;">The Portfolio</h1>
+                </a>
+            </brand-components>
+            <nav class="topnav">
+                <a href="./bio.html" style="font-weight: var(--bold-weight);">Biography</a>
+                <a href="./projects.html">Projects</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+            <scheme-toggle title="Color scheme switcher" id="schemepanel" style="display:none;">
+                <button class="scheme" aria-pressed="false" value="light">
+                    Light
+                </button>
+                <button class="scheme" aria-pressed="false" value="dark">
+                    Dark
+                </button>
+            </scheme-toggle>
+        </header>
+        <main>
+            <picture class="titleImg">
+                <source media="(width<=380px)" srcset="./assets/images/carmen2-mobile.png">
+                <source media="(width<=630px)" srcset="./assets/images/carmen2-desktop.png">
+                <source media="(width>630px)" srcset="./assets/images/carmen2-cropped.jpg">
+                <img src="./assets/images/carmen2-cropped.jpg" alt="Portrait photo of Carmen at Windemere Lake, UK">
+            </picture>
+            <article>
+                <hgroup>
+                    <h2>On Dreams and Multitudes</h2>
+                    <p class="subtitle"> An interview with Carmen He</p>
+                </hgroup>
+                <p class="question">
+                    <em>Q:</em> Hi Carmen! To start, could you introduce yourself and your educational background?</p>
+                <p class="answer" id="education">
+                    <em>A:</em> I hail from Campbell, CA, but I'm currently studying Cognitive Science, an interdisciplinary major that combines machine learning, philosophy, and neuroscience in a holistic study of how humans interact with the world around them, and Computer Science at the University of California,
+                    San Diego. I've been curious about technology since high school: I participated in FIRST Robotics and absolutely loved it. In college I started learning web development, and machine learning, and here we are now. My education definitely informs the way I approach not just technology, but working 
+                    with people too. I'm a huge advocate of interdisciplinary learning -- the best ideas are cross pollinated across different fields, subjects, and philosophies -- and prioritize accessibility and user-forward development.
+                </p>
+                <p class="question">
+                    <em>Q:</em> Tell me more about your interest in technology. What are some things you have built?
+                </p>
+                <p class="answer" id="experience">
+                    <em>A:</em> This website is the second multi-page site I have designed and built from end to end by myself, and the one I'm most proud of. In the design and development process, I really tried to focus on accessibility and 
+                    performance. Another project that I'm really proud of is an LLM benchmarking experiment I ran out of interest. With my co-author, I meticulously designed and conducted a series of "social experiments" on the metaphor generation 
+                    capabilities of popular LLM models to assess their "creativity". It was a really fun bridge between my experiences with LLMs, social science research, and creative writing, and I feel that it is especially relevant now, with the 
+                    discourse surrounding the use of Generative AI with creative tasks. You can find more of my projects <a href="./projects.html" style="text-decoration:underline;">here</a>.
+                </p>
+                <p class="question">
+                    <em>Q:</em> Where do you see yourself in 5 years?
+                </p>
+                <p class="answer" id="future">
+                    <em>A:</em> I have a big milestone coming up this year: first I will be graduating college. In my professional life after, I hope to build accessible, high-performing sites for important causes.
+                </p>
+            </article>
+        </main>
+        <footer>
+            <div id="emailme">carmen.he0908@gmail.com</div>
+            <nav title="Contact options box" id="contact-methods">
+                <a href="https://www.linkedin.com/in/cahe01/" title="LinkedIn">
+                    <img class="sm-icon" src="./assets/icons/linkedin.svg" height="16" width="16" alt="Linked Logo Icon">
+                </a>
+                <a href="https://www.instagram.com/cloudbirdbrain/" title="Instagram">
+                    <img class="sm-icon" src="./assets/icons/instagram.svg" height="16" width="16" alt="Instagram Logo Icon">
+                </a>
+                <a href="https://github.com/thecarmechanic" title="Github">
+                    <img class="sm-icon" src="./assets/icons/github.svg" height="16" width="16" alt="Github Logo Icon">
+                </a>
+            </nav>
+        </footer>
+        <script src="js/schemes.js"></script>
+    </body>
+</html>
