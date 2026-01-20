@@ -1,0 +1,75 @@
+a, h3 {
+  margin: 0;
+  height: var(--project-label-height);
+  align-content: center;
+  box-sizing: border-box;
+  padding: 0 var(--spacing-size);
+  background-color: var(--background);
+}
+a h3 {
+  padding: 0;
+}
+a:visited, a:link {
+  color: var(--font-color);
+}
+
+.projectdisplay {
+  position: relative;
+  text-align: right;
+  padding: var(--spacing-size);
+  height: 100%;
+  overflow: hidden;
+}
+.projectdisplay video,
+.projectdisplay picture,
+.projectdisplay picture img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.selected {
+  position: absolute;
+  left: var(--spacing-size);
+  display:none;
+}
+subject-tag {
+  position: relative;
+  border-radius: var(--tag-rounding);
+  padding: var(--tag-padding);
+  margin-right: var(--tag-rounding);
+  z-index: 1;
+}
+
+.fullstack {
+  position: relative;
+  background-color: var(--accent-2);
+}
+.ai {
+  background-color: var(--end-blue);
+}
+.backend {
+  background-color: var(--accent-2);
+}
+
+/** fallbacks if browser doesn't support color - trying out 2 of my fave colors in hsl */
+.frontend {
+  background-color: hsl(16, 100%, 66%);
+}
+.design {
+  background-color: hsl(300, 26%, 71%);
+}
+/** experimenting with higher gamut colors */
+@supports (color: color(display-p3 1 1 1)) {
+  .frontend {
+    background-color: color(display-p3 1 0.4 0.1);
+  }
+  .design {
+    background-color: color(display-p3 0.784 0.635 0.784);
+  }
+}

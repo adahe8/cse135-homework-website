@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ada's Projects</title>
+    <link rel="icon" href="assets/heart.png" sizes="any" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      body {
+        background: linear-gradient(
+          180deg,
+          var(--background) 0%,
+          var(--end-blue) 100%
+        );
+        min-height: 100vh;
+      }
+    </style>
+    <!-- I will add script to make the project-cards clickable -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="assets/logo.png" alt="blue heart logo" />
+        <a href="../index.html">CSE1135</a>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="projects.html" data-current>Projects</a>
+        <a href="assets/Ada_He_resume.pdf">Resume</a>
+      </nav>
+      <button class="toggle">Change <span id="theme-label">Theme</span></button>
+      <noscript
+        >Allow JavaScript to override the system default theme!</noscript
+      >
+      <section class="image-text-header" id="project-header">
+        <picture loading="lazy">
+          <source srcset="assets/projectsphoto.avif" type="image/avif" />
+          <source srcset="assets/projectsphoto.webp" type="image/webp" />
+          <img
+            src="assets/projectsphoto.png"
+            alt="From left to right, Ada and her friends Ethan and Hannah working on a hackathon project around a single laptop."
+          />
+        </picture>
+        <h1>Projects</h1>
+      </section>
+    </header>
+    <main id="projects-main">
+      <noscript> Enable JavaScript to view my projects!</noscript>
+      <div id="showcase">
+        <editing-tools style="display:none;">
+          <button id="create">+</button>
+          <button id="select">select</button>
+          <button id="reset">reset</button>
+          <div id="exit-select" style="display:none;">
+            <button id="exit">x</button>
+          </div>
+        </editing-tools>
+        <projects-gallery>
+        </projects-gallery>
+      </div>
+    </main>
+    <template id="project-info">
+      <dialog-overlay>
+        <dialog closedby="any">
+          <div>
+            <button id="edit">Edit</button>
+            <button class="close">x</button>
+          </div>
+          <section>
+            <h2></h2>
+            <h3 id="date"></h3> 
+            <marquee-container>
+              <p>Tech Stack</p>
+              <div id="marquee-holder">
+                <div id="marquee-content"></div>
+              </div>
+            </marquee-container>
+          </section>
+          <button id="todeployment"></button>
+          <article>
+            <h3></h3>
+          </article>
+        </dialog>
+      </dialog-overlay>
+    </template>
+    <footer>
+      <a style="color:var(--background);" href="mailto:ada.he0908@gmail.com">ada.he0908@gmail.com</a>
+      <a href="https://www.linkedin.com/in/adahe0908/">
+        <img
+          width="30"
+          height="30"
+          src="assets/linkedin-white.png"
+          alt="linkedin"
+        />
+      </a>
+    </footer>
+    <script src="scripts/index.js"></script>
+    <script src="components/projectCard.js"></script>
+    <script type="module" src="scripts/loadProjects.js"></script>
+  </body>
+</html>

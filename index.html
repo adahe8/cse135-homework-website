@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--Homepage-->
+<html>
+    <head>
+        <title>CSE135 Homework Center</title>
+        <style>
+            body {
+                #branding {
+                    display: grid;
+                    column-gap: 0.5em;
+                    grid-template-columns:auto 1fr;
+                    grid-template-rows: auto auto;
+                    align-items: center;
+                    img {
+                        grid-column: 1;
+                        grid-row: 1 / 2;
+                        width: 100%;
+                        max-width: 150px;
+                    }
+                    p {
+                        grid-column: 1 / -1;
+                        margin: 0.25em;
+                    }
+                    h1{
+                        margin: 0.25em;
+                    }
+
+                }
+                h1 {
+                    font: 900 2em serif;
+                }
+                h2 {
+                    font: 700 1.5em serif;
+                }
+                h3 {
+                    font: 700 1.25em serif;
+                    padding: 0;
+                }
+                p, a{
+                    font: 400 1em sans-serif;
+                }
+                li {
+                    list-style-type: none;
+                }
+                ul {
+                    padding-left: 0;
+                }
+            }
+        </style>
+        <link href="./images/book-icon.svg" rel="icon">
+    </head>
+    <body>
+        <header>
+            <section id="branding">
+                <img src="./images/book-icon.svg">
+                <h1>Literally Websites</h1>
+                <p>Performant, accessibility-forward, community-centered web design and development.</p>
+            </section>
+        </header>
+        <main>
+            <section class="assignments">
+                <h2>CSE135 Homework</h2>
+                <hr>
+                <h3>Homework 1</h2>
+            </section>
+            <section id="author-group">
+                <h2>Meet the Team</h2>
+                <ul>
+                    <li><a href="./adahe/index.html">Ada He</a></li>
+                    <li><a href="./carmenhe/home.html">Carmen He</a></li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>Built with &hearts; by Carmen  & Ada He!</p>
+        </footer>
+    </body>
+</html>

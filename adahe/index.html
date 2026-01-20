@@ -1,0 +1,163 @@
+<!-- landing page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ada's Portfolio</title>
+    <link rel="icon" href="assets/heart.png" sizes="any" />
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .imgfirst-section img{
+        box-sizing: border-box;
+        border: 1rem solid var(--accent-1);
+        border-radius: var(--corner-rounding);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="assets/logo.png" alt="blue heart logo" />
+        <a href="../index.html">CSE1135</a>
+        <a href="index.html" data-current>Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <a href="assets/Ada_He_resume.pdf">Resume</a>
+      </nav>
+      <button class="toggle">Change <span id="theme-label">Theme</span></button>
+      <noscript
+        >Allow JavaScript to override the system default theme!</noscript
+      >
+      <section class="imgfirst-section">
+        <picture>
+          <source srcset="assets/profile-photo.avif" type="image/avif" />
+          <source srcset="assets/profile-photo.webp" type="image/webp" />
+          <img
+            src="assets/profile-photo.png"
+            alt="profile photo of Ada looking at books"
+          />
+        </picture>
+        <hgroup>
+          <h1>Ada He</h1>
+          <p id="bio">
+            I design + engineer accessible and sustainable animated web
+            experiences for yesterday, today, and tomorrow. As a student of an
+            highly interdisciplinary field of study, I highly enjoy drawing from
+            historical context and awareness of the world around me to inform
+            ethical web development practices. Human-centered design is my
+            passion!
+          </p>
+        </hgroup>
+      </section>
+    </header>
+    <main id="landing-main">
+      <a href="aboutme.html">
+        <svg
+          class="landing-blob"
+          aria-labelledby="blob1title blob1desc"
+          viewBox="0 0 408 416"
+        >
+          <title id="blob1title">About Me Section Link</title>
+          <desc id="blob1desc">
+            A peach to blue gradient blob that links to the About Me page.
+          </desc>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M186.632 2.25621C251.039 -7.02406 322.981 12.5374 364.449 57.0066C403.838 99.2468 380.326 159.318 384.014 213.924C388.146 275.091 433.933 345.583 386.99 390.734C339.925 436.002 255.835 410.456 186.632 403.77C128.162 398.122 63.5901 395.626 25.8146 355.84C-10.2351 317.871 0.0229363 263.14 6.38136 213.924C11.806 171.936 29.9615 134.841 58.7313 101.056C94.1171 59.5027 128.5 10.6323 186.632 2.25621Z"
+            fill="url(#shape1-gradient)"
+          />
+          <defs>
+            <linearGradient
+              id="shape1-gradient"
+              x1="0.5"
+              y1="0"
+              x2="0.5"
+              y2="1"
+            >
+              <stop offset="0" class="gradient-top" />
+              <stop offset="1" class="gradient-bottom" />
+            </linearGradient>
+          </defs>
+          <text x="30%" y="50%">About Me</text>
+        </svg>
+      </a>
+      <a href="projects.html">
+        <svg
+          class="landing-blob"
+          aria-labelledby="blob2title blob2desc"
+          viewBox="0 0 408 416"
+        >
+          <title id="blob2title">Projects Section Link</title>
+          <desc id="blob2desc">
+            A peach to blue gradient blob that links to the Projects page.
+          </desc>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M221.197 0.586677C293.234 4.88372 359.564 40.7481 395.537 89.4244C425.654 130.176 386.034 177.88 386.945 224.865C387.885 273.372 436.726 324.729 400.868 364.446C363.382 405.966 286.393 411.015 221.197 408.448C159.458 406.017 98.4796 387.844 58.8606 350.979C21.9816 316.664 30.312 269.29 23.8998 224.865C16.0445 170.442 -21.9181 112.109 17.8565 66.8955C60.9741 17.8815 145.003 -3.9583 221.197 0.586677Z"
+            fill="url(#shape2-gradient)"
+          />
+          <defs>
+            <linearGradient
+              id="shape2-gradient"
+              x1="0.5"
+              y1="0"
+              x2="0.5"
+              y2="1"
+            >
+              <stop offset="0" class="gradient-top" />
+              <stop offset="1" class="gradient-bottom" />
+            </linearGradient>
+          </defs>
+          <text x="30%" y="50%">Projects</text>
+        </svg>
+      </a>
+      <a href="assets/Ada_He_resume.pdf">
+        <svg
+          class="landing-blob"
+          aria-labelledby="blob3title blob3desc"
+          viewBox="0 0 408 416"
+        >
+          <title id="blob3title">Resume Link</title>
+          <desc id="blob3desc">
+            A peach to pale blue gradient blob that links to a pdf of Ada's
+            resume.
+          </desc>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M210.475 10.5352C254.229 15.2692 297.723 19.968 331.889 47.2666C370.138 77.8266 399.623 118.621 405.919 166.693C413.086 221.416 402.069 277.76 367.798 321.44C328.787 371.16 274.253 412.805 210.475 415.793C144.456 418.886 79.4687 387.073 37.4165 336.918C-1.54661 290.448 -2.45582 226.795 1.6176 166.693C5.35056 111.614 14.3706 51.1505 59.0484 17.7459C100.872 -13.5244 158.256 4.88517 210.475 10.5352Z"
+            fill="url(#shape3-gradient)"
+          />
+          <defs>
+            <linearGradient
+              id="shape3-gradient"
+              x1="0.5"
+              y1="0"
+              x2="0.5"
+              y2="1"
+            >
+              <stop offset="0" class="gradient-top" />
+              <stop offset="1" class="gradient-bottom" />
+            </linearGradient>
+          </defs>
+          <text x="30%" y="50%">Resume</text>
+        </svg>
+      </a>
+    </main>
+    <footer>
+      <a style="color:var(--background);" href="mailto:ada.he0908@gmail.com">ada.he0908@gmail.com</a>
+      <a href="https://www.linkedin.com/in/adahe0908/">
+        <img
+          src="assets/linkedin-white.png"
+          width="30"
+          height="30"
+          alt="linkedin"
+        />
+      </a>
+    </footer>
+    <script type="module" src="scripts/index.js"></script>
+  </body>
+</html>

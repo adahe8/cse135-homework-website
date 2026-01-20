@@ -1,0 +1,73 @@
+/** variables to use: no magic numbers here */
+:root {
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.6rem;
+  --font-size-big: 1.25rem;
+
+  --spacing-size: 1.5rem;
+  --gutter-size: 3rem;
+  --corner-rounding: 1.25rem;
+  --form-rounding: 8px;
+  --lift-up: -5px;
+  --drop-shadow: 0 5px var(--form-rounding) rgba(0, 0, 0, 0.3);
+
+  --footer-height: 4.5rem;
+  --max-subheading-width: 40rem;
+  --home-img-min-width: 250px;
+  --home-img-max-width: 28rem;
+  --blob-min-width: 17.5rem;
+  --blob-min-height: 18rem;
+
+  --card-ratio: 3 / 2;
+  --project-card-width: 25rem;
+  --project-label-height: 3rem;
+  --tag-padding: 0.25rem;
+  --tag-rounding: 10px;
+  --white-outline: #fff;
+}
+
+/** light mode colors */
+body {
+  --background: white;
+  --font-color: black;
+  --end-blue: #90c6f0;
+  --end-peach: #fcf4e9;
+  --accent-1: #0163d2;
+  --accent-2: #ffe0b6;
+  --text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+/** dark mode colors */
+body.dark-theme {
+  --background: #152028;
+  --font-color: white;
+  --end-blue: #005a9f;
+  --end-peach: #ffca7f;
+  --accent-1: #90c6f0;
+  --accent-2: #bf9760;
+  --text-shadow: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --background: #152028;
+    --font-color: white;
+    --end-blue: #005a9f;
+    --end-peach: #ffca7f;
+    --accent-1: #90c6f0;
+    --accent-2: #bf9760;
+    --text-shadow: 0;
+  }
+  body.light-theme {
+    --background: white;
+    --font-color: black;
+    --end-blue: #90c6f0;
+    --end-peach: #fcf4e9;
+    --accent-1: #0163d2;
+    --accent-2: #ffe0b6;
+    --text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+      -1px 1px 0 #fff, 1px 1px 0 #fff;
+  }
+}
