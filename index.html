@@ -1,50 +1,76 @@
 <!DOCTYPE html>
 <!--Homepage-->
-<html>
+<html lang="en">
     <head>
         <title>CSE135 Homework Center</title>
         <style>
-            body {
-                #branding {
-                    display: grid;
-                    column-gap: 0.5em;
-                    grid-template-columns:auto 1fr;
-                    grid-template-rows: auto auto;
-                    align-items: center;
-                    img {
-                        grid-column: 1;
-                        grid-row: 1 / 2;
-                        width: 100%;
-                        max-width: 150px;
-                    }
-                    p {
-                        grid-column: 1 / -1;
-                        margin: 0.25em;
-                    }
-                    h1{
-                        margin: 0.25em;
-                    }
-
-                }
-                h1 {
-                    font: 900 2em serif;
-                }
-                h2 {
-                    font: 700 1.5em serif;
-                }
-                h3 {
-                    font: 700 1.25em serif;
-                    padding: 0;
-                }
-                p, a{
-                    font: 400 1em sans-serif;
-                }
-                li {
-                    list-style-type: none;
-                }
-                ul {
-                    padding-left: 0;
-                }
+            #branding {
+                display: grid;
+                column-gap: 0.5em;
+                grid-template-columns:auto 1fr;
+                grid-template-rows: auto auto;
+                align-items: center;
+            }
+            #branding img {
+                grid-column: 1;
+                grid-row: 1 / 2;
+                width: 100%;
+                max-width: 150px;
+            }
+            #branding p {
+                grid-column: 1 / -1;
+                margin: 0.25em;
+            }
+            #branding h1{
+                margin: 0.25em;
+            }
+            main {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .assignments {
+                width: 75%;
+            }
+            #author-section {
+                padding: 0.5rem;
+                border: 1px solid black;
+                width: fit-content;
+                height: fit-content;
+            }
+            #author-section h2{
+                margin: 0;
+            }
+            #author-section ul {
+                margin: 0;
+            }
+            h1 {
+                font: 900 2em serif;
+            }
+            h2 {
+                font: 700 1.5em serif;
+            }
+            h3 {
+                font: 700 1.25em serif;
+                padding: 0;
+            }
+            p, a{
+                font: 400 1em sans-serif;
+            }
+            li {
+                list-style-type: none;
+            }
+            ul {
+                padding-left: 0;
+            }
+            footer {
+                position: absolute;
+                bottom: 0;
+                text-align: center;
+                width: 100%;
+            }
+            footer p {
+                margin: 0.25em;
             }
         </style>
         <link href="./images/book-icon.svg" rel="icon">
@@ -52,7 +78,7 @@
     <body>
         <header>
             <section id="branding">
-                <img src="./images/book-icon.svg">
+                <img src="./images/book-icon.svg" alt="open book icon">
                 <h1>Literally Websites</h1>
                 <p>Performant, accessibility-forward, community-centered web design and development.</p>
             </section>
@@ -61,9 +87,9 @@
             <section class="assignments">
                 <h2>CSE135 Homework</h2>
                 <hr>
-                <h3>Homework 1</h2>
+                <h3>Homework 1</h3>
             </section>
-            <section id="author-group">
+            <section id="author-section">
                 <h2>Meet the Team</h2>
                 <ul>
                     <li><a href="./adahe/index.html">Ada He</a></li>
