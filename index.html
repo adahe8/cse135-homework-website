@@ -10,6 +10,7 @@
                 grid-template-columns:auto 1fr;
                 grid-template-rows: auto auto;
                 align-items: center;
+                justify-content: center;
             }
             #branding img {
                 grid-column: 1;
@@ -29,7 +30,7 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            .assignments {
+            #assignments {
                 width: 75%;
             }
             #author-section {
@@ -44,11 +45,23 @@
             #author-section ul {
                 margin: 0;
             }
+            .homework {
+                border: 1px dotted black;
+                margin: 0.25em 0;
+            }
+            .homework h3 {
+                margin: 0.25em 0;
+            }
+            .homework p {
+                font-size: 0.9em;
+                background-color: #f0f0f0;
+            }
             h1 {
                 font: 900 2em serif;
             }
             h2 {
                 font: 700 1.5em serif;
+                margin: 0.5em 0 0.25em 0;
             }
             h3 {
                 font: 700 1.25em serif;
@@ -84,13 +97,25 @@
             </section>
         </header>
         <main>
-            <section class="assignments">
+            <section id="assignments">
                 <h2>CSE135 Homework</h2>
                 <hr>
-                <h3>Homework 1</h3>
+                <section class="homework">
+                    <h3>Homework 1</h3>
+                    <ul>
+                    </ul>
+                </section>
+                <section class="homework">
+                    <h3>Homework 2</h3>
+                    <p>TBD</p>
+                </section>
+                <section class="homework">
+                    <h3>Analytics App</h3>
+                    <p>TBD</p>
+                </section>
             </section>
             <section id="author-section">
-                <h2>Meet the Team</h2>
+                <h2>&star;Meet the Team&star;</h2>
                 <ul>
                     <li><a href="./adahe/index.html">Ada He</a></li>
                     <li><a href="./carmenhe/home.html">Carmen He</a></li>
