@@ -1,7 +1,7 @@
 const form = document.getElementById('echo-form');
 const endpoints = {
     'PHP': '/cgi-bin/echo-php.php',
-    'Ruby': '/cgi-bin/ruby/echo-ruby.rb',
+    'Ruby': '/cgi-bin/echo-ruby.rb',
     'Node.js': '/cgi-bin/echo-node-express.js'
 }
 
