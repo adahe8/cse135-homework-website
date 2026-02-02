@@ -14,11 +14,11 @@ function sendRequest(event){
 
 
     if (selectedLang == 'PHP'){
-        this.action = "/usr/lib/cgi-bin/echo-php.php";
+        this.action = "/cgi-bin/echo-php.php";
     } else if (selectedLang == 'Ruby'){
-        this.action = "/usr/lib/cgi-bin/echo-ruby.rb";
+        this.action = "/cgi-bin/echo-ruby.rb";
     } else if (selectedLang == 'Node.js'){
-        this.action = "/usr/lib/cgi-bin/echo-node-express.js";
+        this.action = "/cgi-bin/echo-node-express.js";
     }else{
         throw new Error("Pick a language from the ones available only!");
     }
