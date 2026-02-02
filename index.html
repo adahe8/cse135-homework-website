@@ -86,6 +86,7 @@
                 margin: 0.25em;
             }
         </style>
+        <script src="./index.js" defer></script>
         <link href="./book-icon.svg" rel="icon">
     </head>
     <body>
@@ -110,7 +111,7 @@
                     <h3>Homework 2</h3>
                     <article>
                         <h4>Test Scripting Languages</h4>
-                        <form>
+                        <form id="echo-form">
                             <label for="scripting-lang">Choose a Scripting Language.</label>
                             <select id="scripting-lang">
                                 <option value="PHP">PHP</option>
@@ -137,6 +138,9 @@
                             </label>
                             <input type="submit" value="Submit"/>
                         </form>
+                        <noscript>
+                            <p>JavaScript disabled: only POST functionality is enabled.</p>
+                        </noscript>
                     </article>
                 </section>
                 <section class="homework">
