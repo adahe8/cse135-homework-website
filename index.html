@@ -139,7 +139,43 @@
                             <input type="submit" value="Submit"/>
                         </form>
                         <noscript>
-                            <p>JavaScript disabled: only POST functionality is enabled.</p>
+                            <p>JavaScript disabled: only POST functionality is enabled, and data will only be url encoded.</p>
+                            <details>
+                                <summary>PHP echo form.</summary>
+                                <form action="../../usr/lib/cgi_bin/echo-php.php" method="POST">
+                                    <label>Name.
+                                        <input name="name" autocomplete="on" type="text" />
+                                    </label>
+                                    <label>Message.
+                                        <input name="message" placeholder="Message for us." type="text" />
+                                    </label>
+                                    <input type="submit" value="Submit"/>
+                                </form>
+                            </details>
+                            <details>
+                                <summary>Ruby echo form.</summary>
+                                <form action="../../usr/lib/cgi_bin/echo-ruby.rb" method="POST">
+                                    <label>Name.
+                                        <input name="name" autocomplete="on" type="text" />
+                                    </label>
+                                    <label>Message.
+                                        <input name="message" placeholder="Message for us." type="text" />
+                                    </label>
+                                    <input type="submit" value="Submit"/>
+                                </form>
+                            </details>
+                            <details>
+                                <summary>Node.js echo form.</summary>
+                                <form action="../../usr/lib/cgi_bin/echo-node-express.php" method="POST">
+                                    <label>Name.
+                                        <input name="name" autocomplete="on" type="text" />
+                                    </label>
+                                    <label>Message.
+                                        <input name="message" placeholder="Message for us." type="text" />
+                                    </label>
+                                    <input type="submit" value="Submit"/>
+                                </form>
+                            </details>
                         </noscript>
                     </article>
                 </section>
