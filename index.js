@@ -35,8 +35,6 @@ function sendRequest(event){
 
     fetch(url, options)
         .then(res => res.text());
-
-    window.history.pushState({}, '', action);
 }
 
 function getFormData(form){
