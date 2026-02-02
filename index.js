@@ -8,7 +8,7 @@ function sendRequest(event){
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-    const encodeAsJSON = document.getElementById('json').checked;
+    const encodeAsJSON = document.querySelector('input[name="json"]').checked;
     let selectedLang = langType.value;
     let selectedMethod = httpMethod.value;
 
