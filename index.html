@@ -125,6 +125,7 @@
                                 <option value="PUT">PUT</option>
                                 <option value="DELETE">DELETE</option>
                             </select>
+                            <input type="hidden" name="_method" id="override" />
                             <label for="encoding">Optionally, enable JSON encoding.
                                 <input type="checkbox" name="json"> Encode with JSON.
                             </label>
@@ -136,6 +137,9 @@
                             </label>
                             <input type="submit" value="Submit"/>
                         </form>
+                        <section id="results">
+                            <h3>Echoed outputs returned by scripts from JSON requests</h3>
+                        </section>
                         <noscript>
                             <p>JavaScript disabled: only POST functionality is enabled, and data will only be url encoded.</p>
                             <details>
