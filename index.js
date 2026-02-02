@@ -37,7 +37,7 @@ function sendRequest(event){
         .then(res => res.text())
         .then(html => {
             document.body.innerHTML = html;
-        })
+        });
 }
 
 function getFormData(form){
