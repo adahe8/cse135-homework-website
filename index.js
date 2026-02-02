@@ -34,10 +34,9 @@ function sendRequest(event){
     }
 
     fetch(url, options)
-        .then(res => res.text())
-        .then(html => {
-            document.body.innerHTML = html;
-        });
+        .then(res => res.text());
+
+    window.history.pushState({}, '', action);
 }
 
 function getFormData(form){
