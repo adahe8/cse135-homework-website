@@ -138,13 +138,13 @@
                             <input type="submit" value="Submit"/>
                         </form>
                         <section id="results">
-                            <h3>Echoed outputs returned by scripts from JSON requests</h3>
+                            <h4>JSON Echo</h4>
                         </section>
                         <noscript>
                             <p>JavaScript disabled: only POST functionality is enabled, and data will only be url encoded.</p>
                             <details>
                                 <summary>PHP echo form.</summary>
-                                <form action="../../usr/lib/cgi_bin/echo-php.php" method="POST">
+                                <form action="/cgi_bin/echo-php.php" method="POST">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>
@@ -156,7 +156,7 @@
                             </details>
                             <details>
                                 <summary>Ruby echo form.</summary>
-                                <form action="../../usr/lib/cgi_bin/echo-ruby.rb" method="POST">
+                                <form action="/cgi_bin/echo-ruby.rb" method="POST">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>
@@ -168,7 +168,7 @@
                             </details>
                             <details>
                                 <summary>Node.js echo form.</summary>
-                                <form action="../../usr/lib/cgi_bin/echo-node-express.php" method="POST">
+                                <form action="/cgi_bin/echo-node-express.php" method="POST">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>

@@ -44,7 +44,7 @@ function sendRequest(event){
             // Display or process the JSON response
             console.log('Response:', data);
             document.getElementById('results').innerHTML += 
-                `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                `<p>${JSON.stringify(data, null, 2)}</p>`;
         })
         .catch(error => {
             console.error('Error:', error);
