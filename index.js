@@ -25,7 +25,7 @@ function sendRequest(event){
     this.method = selectedMethod;
     
     if (encodeAsJSON) {
-        if (httpMethod == 'POST' || httpMethod == 'PUT'){
+        if (selectedMethod == 'POST' || selectedMethod == 'PUT'){
             fetch(this.action, {
                 method: selectedMethod,
                 headers: {
@@ -40,7 +40,7 @@ function sendRequest(event){
             .catch((error) => {
                 console.error('Error:', error);
             })
-        } else if (httpMethod == 'GET' || httpMethod == 'DELETE'){
+        } else if (selectedMethod == 'GET' || selectedMethod == 'DELETE'){
             fetch(this.action, {
                 method: selectedMethod,
                 headers: {
