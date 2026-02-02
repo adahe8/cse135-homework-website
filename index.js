@@ -1,63 +1,45 @@
 const form = document.getElementById('echo-form');
-const langType = document.getElementById('scripting-lang');
-const httpMethod = document.getElementById('http-method');
+const endpoints = {
+    'PHP': '/cgi-bin/echo-php.php',
+    'Ruby': '/cgi-bin/echo-ruby.rb',
+    'Node.js': '/cgi-bin/echo-node-express.js'
+}
 
 form.addEventListener('submit', sendRequest);
 
 function sendRequest(event){
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+
+    const data = getFormData(form);
     const encodeAsJSON = document.querySelector('input[name="json"]').checked;
-    let selectedLang = langType.value;
-    let selectedMethod = httpMethod.value;
+    let selectedLang = document.getElementById('scripting-lang').value;
+    let selectedMethod = document.getElementById('http-method').value;
 
+    const action = endpoints[selectedLang];
+    if (!action) throw new Error('Invalid language selected! Please stick to dropdown options.');
 
-    if (selectedLang == 'PHP'){
-        this.action = "/cgi-bin/echo-php.php";
-    } else if (selectedLang == 'Ruby'){
-        this.action = "/cgi-bin/echo-ruby.rb";
-    } else if (selectedLang == 'Node.js'){
-        this.action = "/cgi-bin/echo-node-express.js";
-    }else{
-        throw new Error("Pick a language from the ones available only!");
-    }
-    this.method = selectedMethod;
+    let url = action;
+    let options = { selectedMethod };
     
-    if (encodeAsJSON) {
-        if (selectedMethod == 'POST' || selectedMethod == 'PUT'){
-            fetch(this.action, {
-                method: selectedMethod,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            })
-        } else if (selectedMethod == 'GET' || selectedMethod == 'DELETE'){
-            fetch(this.action, {
-                method: selectedMethod,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            })
-        }
-        
+    if (method === 'GET') {
+        url += '?' + new URLSearchParams(data);
     } else {
-        this.submit();
+        if (encodeAsJSON) {
+            options.headers = { 'Content-Type':'application/json' };
+            options.body = JSON.stringify(data);
+        } else {
+            options.headers = { 'Content-Type':'application/x-www-form-urlencoded' };
+            options.body = new URLSearchParams(data);
+        }
     }
 
+    fetch(url, options)
+        .then(res => res.text())
+        .then(html => {
+            document.body.innerHTML = html;
+        })
+}
+
+function getFormData(form){
+    return Object.fromEntries(new FormData(form).entries());
 }
