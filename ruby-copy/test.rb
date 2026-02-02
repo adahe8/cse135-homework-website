@@ -1,0 +1,6 @@
+puts "Hello, World!"
+puts "This is string concatenaiton: " + "Hello, " + "Ruby!"
+string1 = "Hello, World!"
+puts "This is string interpolation with variables: #{string1}"
+print "This uses print instead of puts. "
+print "Notice that there is no newline automatically added.\n"

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ruby CGI Form</title>
+        <!-- <script id="simplify-jobs-page-script" src="chrome-extension://pbanhockgagggenencehbnadejlgchfc/js/pageScript.bundle.js"></script> -->
+    </head>
+    <body>
+        <h1 align="center">Ruby CGI Session Testing</h1>
+        <hr>
+        <form action="/cgi-bin/ruby/state-ruby.rb" method="post" id="ruby-cgi-form">
+            <label for="username">What is your name?</label>
+            <input type="text" id="username" name="username" autocomplete="off">
+            <br>
+            <label for="favorite-book">What is your favorite book?</label>
+            <input type="text" id="favorite-book" name="favorite-book" autocomplete="off">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/" style="display:inline-block;margin-top:20px;">Home</a> 
+    </body>
+</html>
