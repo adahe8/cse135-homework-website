@@ -19,9 +19,9 @@ function sendRequest(event){
     if (!action) throw new Error('Invalid language selected! Please stick to dropdown options.');
 
     let url = action;
-    let options = { selectedMethod };
+    let options = { method: selectedMethod };
     
-    if (method === 'GET') {
+    if (selectedMethod === 'GET') {
         url += '?' + new URLSearchParams(data);
     } else {
         if (encodeAsJSON) {
