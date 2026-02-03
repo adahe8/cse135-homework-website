@@ -21,6 +21,9 @@ function sendRequest(event){
         name: form.name || 'Anonymous',
     });
 
+    // simple analytics custom event for each form s submit button clicks
+    sa_event('request_submission');
+    
     const action = endpoints[selectedLang];
     if (!action) throw new Error('Invalid language selected! Please stick to the original dropdown options.');
 
@@ -64,11 +67,3 @@ function sendRequest(event){
 function getFormData(form){
     return Object.fromEntries(new FormData(form).entries());
 }
-
-
-// simple analytics custom event for all submit button clicks
-document.getElementsByTagName('input').submit.forEach(button => {
-    button.addEventListener('click', () => {
-        sa_event('request_submission_click');
-    });
-});
