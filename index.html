@@ -4,6 +4,9 @@
     <head>
         <title>CSE135 Homework Center</title>
         <style>
+            html, body{
+                height: 100%;
+            }
             #branding {
                 display: grid;
                 column-gap: 0.5em;
@@ -25,10 +28,14 @@
             #branding h1{
                 margin: 0.25em;
             }
-            main {
+            body {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                width: 100%;
+            }
+            main {
                 align-items: center;
+                width: 100%;
             }
             #assignments {
                 width: 75%;
@@ -77,13 +84,16 @@
                 padding-left: 0;
             }
             footer {
-                position: static;
-                bottom: 0;
                 text-align: center;
-                width: 100%;
+                flex:1;
             }
             footer p {
                 margin: 0.25em;
+
+            }
+            #script_links {
+                display: flex;
+                justify-content: space-evenly;
             }
         </style>
         <script src="./index.js" defer></script>
@@ -119,13 +129,65 @@
                 </section>
                 <section class="homework">
                     <h3>Homework 2</h3>
+                    <div id="script_links">
+                        <section id="perl">
+                            <h4>Perl</h4>
+                            <ul>
+                                <li><a href="./cgi-bin/perl-hello-html-world.pl">Hello, Perl! (HTML)</a></li>
+                                <li><a href="./cgi-bin/perl-hello-json-world.pl">Hello, Perl! (JSON)</a></li>
+                                <li><a href="./cgi-bin/perl-env.pl">Environment Variables</a></li>
+                                <li><a href="./cgi-bin/perl-get-echo.pl">Perl GET Echo</a></li>
+                                <li><a href="./cgi-bin/perl-post-echo.pl">Perl POST Echo</a></li>
+                                <li><a href="./cgi-bin/perl-general-echo.pl">Perl General Echo</a></li>
+                                <li><a href="./cgiforms/perl-cgiform.html">Perl Sessioning</a>
+                                    <li><a href="./cgi-bin/perl-sessions-1.pl">Session 1</a></li>
+                                    <li><a href="./cgi-bin/perl-session-2.pl">Session 2</a></li>
+                                </li>
+                                <li></li>
+                            </ul>
+                        </section>
+                        <section id="php">
+                            <h4>PHP</h4>
+                            <ul>
+                                <li><a href="./cgi-bin/hello-html-php.php">Hello, PHP! (HTML)</a></li>
+                                <li><a href="./cgi-bin/hello-json-php.php">Hello, PHP! (JSON)</a></li>
+                                <li><a href="./cgi-bin/env-php.php">Environment Variables</a></li>
+                                <li><a href="./cgi-bin/echo-php.php">PHP Echo*</a>
+                                </li>
+                                <li><a href="./cgiforms/php-cgiform.html">PHP States</a></li>
+                            </ul>
+                        </section>
+                        <section id="python">
+                            <h4>Python</h4>
+                            <uL>
+                                <li><a href="./cgi-bin/hello-html-python.py">Hello, Python! (HTML)</a></li>
+                                <li><a href="./cgi-bin/hello-json-python.py">Hello, Python! (JSON)</a></li>
+                                <li><a href="./cgi-bin/env-python.py">Environment Variables</a></li>
+                                <li><a href="./cgi-bin/echo-python.py">Python Echo*</a>
+                                </li>
+                                <li><a href="./cgiforms/python-cgiform.html">Python States</a></li>
+                            </uL>
+                        </section>
+                        <section id="ruby">
+                            <h4>Ruby</h4>
+                            <ul>
+                                <li><a href="./cgi-bin/hello-html-ruby.rb">Hello, Ruby! (HTML)</a></li>
+                                <li><a href="./cgi-bin/hello-json-ruby.rb">Hello, Ruby! (JSON)</a></li>
+                                <li><a href="./cgi-bin/env-ruby.rb">Environment Variables</a></li>
+                                <li><a href="./cgi-bin/echo-ruby.rb">Ruby Echo*</a>
+                                </li>
+                                <li><a href="./cgiforms/ruby-cgiform.html">Ruby States</a></li>
+                            </ul>
+                        </section>
+                    </div>
                     <article>
+                        <p style="text-align: center">* fill out the form belowfor a better echo demo</p>
                         <h4>Test Scripting Languages</h4>
                         <form id="echo-form">
                             <label for="scripting-lang">Choose a Scripting Language.</label>
                             <select id="scripting-lang">
                                 <option value="PHP">PHP</option>
-                                <option value="Ruby">Ruby on Rails</option>
+                                <option value="Ruby">Ruby</option>
                                 <option value="Python">Python</option>
                             </select>
                             <label for="http-method">Set HTTP method.</label>
@@ -147,7 +209,7 @@
                             </label>
                             <input type="submit" value="Submit"/>
                         </form>
-                        <section id="results">
+                        <section id="results" style="border:1px dotted black">
                             <h4>JSON Echo</h4>
                         </section>
                         <noscript>
