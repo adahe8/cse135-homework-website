@@ -4,7 +4,7 @@ require 'cgi/session';
 
 #create CGI object
 cgi = CGI.new();
-session = CGI::Session.new(cgi
+session = CGI::Session.new(cgi,
     "database_manager" => CGI::Session::FileStore,
     "session_key" => 'ruby_cgi_session'
 );
