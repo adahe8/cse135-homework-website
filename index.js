@@ -38,11 +38,6 @@ function sendRequest(event){
     form.action = action;
     
     if (encodeAsJSON) {
-        // Include override field in JSON for PUT/DELETE
-        if (selectedMethod === 'PUT' || selectedMethod === 'DELETE') {
-            data._method = selectedMethod;
-        }
-        
         fetch(form.action, {
             method: (selectedMethod === 'PUT' || selectedMethod === 'DELETE') ? 'POST' : selectedMethod,
             headers: {
@@ -51,10 +46,9 @@ function sendRequest(event){
             body: (selectedMethod === 'GET') ? undefined : JSON.stringify(data)
         })
         .then(response => response.text())
-        .then(data => {
+        .then(html => {
             // Display or process the JSON response
-            console.log('Response:', data);
-            document.getElementById('results').innerHTML = data;
+            document.getElementById('results').innerHTML = html;
         })
         .catch(error => {
             console.error('Error:', error);
