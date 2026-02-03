@@ -1,7 +1,3 @@
-// LogRocket analytics set up
-import LogRocket from 'logrocket';
-LogRocket.init('ukfmeg/literallycreatessite');
-
 let user = document.getElementById("name");
 let email = document.getElementById("email");
 let comment = document.getElementById("message");

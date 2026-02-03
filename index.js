@@ -1,7 +1,3 @@
-// LogRocket analytics set up
-import LogRocket from 'logrocket';
-LogRocket.init('ukfmeg/literallycreatessite');
-
 // Form handling
 const form = document.getElementById('echo-form');
 const endpoints = {
