@@ -1,56 +1,53 @@
 #/usr/bin/ruby
-
 require 'cgi';
 require 'cgi/session';
-
-# destroy old session if it exists
-begin
-    session = CGI::Session.new(cgi, 'new_session' => false);
-    session.delete;
-rescue nil;
-end
-
-# create a new CGI session
-session = CGI::Session.new(cgi, 'new_session' => true);
 
 # create CGI object
 cgi = CGI.new();
 
-# manage state with new Cookie from session id
-cookie = CGI::Cookie.new('name' => 'ruby_cgi_session', 'value' => session.session_id, 'path' => '/cgi-bin/ruby/');
+# create a new CGI session
+session = CGI::Session.new(cgi,
+    "database_manager" => CGI::Session::FileStore, # temp stores data on server and sends cookie to client
+    "session_key" => 'ruby_cgi_session',
+    "session_expires" => Time.now + 1800, # 30 min window
+    "new_session" => true
+);
 
-# store data sent via form params into cgi session
-session['username'] = cgi['username'];
-session['favorite_book'] = cgi['favorite_book'];
-name = session['username'] || "";
+# store form data params in session
+if cgi.key?('username') && !cgi['username'].strip.empty?
+    session['username'] = cgi['username'];
+    session['favorite_book'] = cgi['favorite_book'];
+end
 
-# Print the HTTP header with an empty line after for separation
-puts cgi.header('type' => 'text/html', 'cookie' => cookie);
+name = session['username'] || "Guest";
+book = session['favorite_book'] || "Unknown";
+
+session.close; # save session data
+
+# HTTP response
+puts cgi.header(type:'text/html');
 
 # Print the HTML content
-puts <<~CONTENT
-<!DOCTYPE html>
-<html>
-<head>
-<title>Ruby CGI Sessions</title>
-</head>
-<body>
-<hgroup>
-<h1 align='center'>Ruby CGI Sessions</h1>
-<p align='center'>State management handled with cookies.</p>
-</hgroup>
-<hr>
-<p>Welcome, <b>#{name}</b>!</p>
-<p><b>Favorite Book: </b> #{session['favorite_book']}</p>
-<p><b>Session ID: </b> #{session.session_id}</p>
-<p><b>Storage: </b> Cookie #{cookie.value}</p>
-<p><a href='/cgiforms/ruby-cgiform.html'>Return to Form</a></p>
-<form method='get' action='/cgi-bin/ruby/destroy-state-ruby.rb'>
-<button type='submit'>Destroy Session</button>
-</form>
-</body>
-</html>
-CONTENT
+puts "<!DOCTYPE html>";
+puts "<html>";
+puts "<head>";
+puts "<title>Ruby CGI Sessions</title>";
+puts "</head>";
+puts "<body>";
+puts "<hgroup>";
+puts "<h1 align='center'>Ruby CGI Sessions</h1>";
+puts "<p align='center'>State management handled with cookies.</p>";
+puts "</hgroup>";
+puts "<hr>";
+puts "<p>Welcome, <b>#{name}</b>!</p>";
+puts "<p><b>Favorite Book: </b> #{book}</p>";
+puts "<p><b>Session ID/Cookie: </b> #{session.session_id}</p>";
+puts "<p><a href='/cgiforms/ruby-cgiform.html'>Return to Form</a></p>";
+puts "<form method='post' action='/cgi-bin/ruby/destroy-state-ruby.rb'>";
+puts "<button type='submit'>Destroy Session</button>";
+puts "</form>";
+puts "</body>";
+puts "</html>";
 
 # with html cgi library
 # page = cgi.html {
