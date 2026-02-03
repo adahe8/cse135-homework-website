@@ -1,4 +1,4 @@
-#/usr/bin/ruby
+#!/usr/bin/ruby
 require 'cgi';
 require 'cgi/session';
 
@@ -25,7 +25,7 @@ book = session['favorite_book'] || "Unknown";
 session.close; # save session data
 
 # HTTP response
-puts cgi.header(type:'text/html');
+print "#{cgi.header(type:'text/html')}\n\n";
 
 # Print the HTML content
 puts "<!DOCTYPE html>";
@@ -43,28 +43,8 @@ puts "<p>Welcome, <b>#{name}</b>!</p>";
 puts "<p><b>Favorite Book: </b> #{book}</p>";
 puts "<p><b>Session ID/Cookie: </b> #{session.session_id}</p>";
 puts "<p><a href='/cgiforms/ruby-cgiform.html'>Return to Form</a></p>";
-puts "<form method='post' action='/cgi-bin/ruby/destroy-state-ruby.rb'>";
+puts "<form method='post' action='/cgi-bin/destroy-state-ruby.rb'>";
 puts "<button type='submit'>Destroy Session</button>";
 puts "</form>";
 puts "</body>";
 puts "</html>";
-
-# with html cgi library
-# page = cgi.html {
-#     cgi.head {
-#         cgi.title { "Ruby CGI Sessions" }
-#     } +
-#     cgi.body {
-#         cgi.hgroup(cgi.h1({:align => 'center'}, "Ruby CGI Sessions") + cgi.p({:align => 'center'}, "State management handled with cookies.")) +
-#         cgi.hr() +
-#         cgi.p("Welcome, " + cgi.bold("#{name}") + "!") +
-#         cgi.p(cgi.bold("Favorite Book: ") + "#{session['favorite_book']}") +
-#         cgi.p(cgi.bold("Session ID: ") + "#{session.session_id}") +
-#         cgi.p(cgi.bold("Storage: ") + "Cookie #{cookie.value}") +
-#         cgi.p(cgi.a({:href => '/ruby-cgiform.html'}, "Return to Form")) +
-#         cgi.form({:method => 'get', :action => '/cgi-bin/ruby/destroy-state-ruby.rb'}) {
-#             cgi.button({:type => 'submit'}, "Destroy Session");
-#         }
-#     }
-# };
-# puts page;

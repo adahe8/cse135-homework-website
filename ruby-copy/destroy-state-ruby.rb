@@ -1,4 +1,4 @@
-#! /usr/bin/ruby
+#!/usr/bin/ruby
 require 'cgi';
 require 'cgi/session';
 
@@ -12,7 +12,8 @@ book = session['favorite_book'] || "Unknown";
 session_id = session.session_id;
 
 # output session data before destroying
-puts cgi.header(type:'text/html');
+print "#{cgi.header(type:'text/html')}\n\n";
+
 puts "<!DOCTYPE html>";
 puts "<html>";
 puts "<head>";
