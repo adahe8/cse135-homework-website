@@ -1,4 +1,4 @@
-#! /usr/bin/env ruby
+#! /usr/bin/ruby
 require 'cgi';
 require 'cgi/session';
 

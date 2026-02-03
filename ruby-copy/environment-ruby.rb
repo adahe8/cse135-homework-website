@@ -1,46 +1,27 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
 
 # HTTP header - not necessary if using cgi library, which does request handling
-puts "Cache-Control: no-cache";
-puts "Content-Type: application/json\n";
+print "Cache-Control: no-cache\n";
+print "Content-Type: text/html\n\n";
 
-puts<<~START
-<!DOCTYPE html>
-<html>
-<head>
-<title>Environment Variables in Ruby CGI</title>
-</head>
-<body>
-<h1 align='center'>Environment Variables</h1><hr>
-START
+puts "<!DOCTYPE html>";
+puts "<html>";
+puts "<head>";
+puts "<script async src='https://www.googletagmanager.com/gtag/js?id=G-JKXPXHQ6FZ'></script>";
+puts "<script>";
+puts "window.dataLayer = window.dataLayer || [];";
+puts "function gtag(){dataLayer.push(arguments);}";
+puts "gtag('js', new Date());";
+puts "gtag('config', 'G-JKXPXHQ6FZ');";
+puts "</script>";
+puts "<title>Environment Variables in Ruby CGI</title>";
+puts "</head>";
+puts "<body>";
+puts "<h1 align='center'>Environment Variables</h1><hr>";
+
 for key in ENV.keys.sort do
     value = ENV[key];
     puts "<p>#{key} = #{value}</p>";
 end
-puts<<~END
-</body>
-</html>
-END
-
-# include CGI library -- more overhead
-# require 'cgi';
-# cgi = CGI.new('html5');
-
-# puts cgi.header({"Cache-Control" => "no-cache", type => "text/html"});
-
-# page = cgi.html {
-#     cgi.head {
-#         cgi.title { "Environment Variables in Ruby CGI" }
-#     } +
-#     cgi.body {
-#         cgi.h1({:align => 'center'}, "Environment Variables") +
-#         cgi.hr() +
-#         ENV.keys.sort.map { |key|
-#             value = ENV[key];
-#             cgi.p { "#{key} = #{value}" }
-#         }.join # joins output array into one string
-#     }
-# };
-# puts page;
-
-
+puts "</body>";
+puts "</html>";
