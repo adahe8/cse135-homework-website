@@ -1,3 +1,8 @@
+// LogRocket analytics set up
+import LogRocket from 'logrocket';
+LogRocket.init('ukfmeg/literallycreatessite');
+
+// Form handling
 const form = document.getElementById('echo-form');
 const endpoints = {
     'PHP': '/cgi-bin/echo-php.php',
@@ -14,6 +19,11 @@ function sendRequest(event){
     const encodeAsJSON = document.querySelector('input[name="json"]').checked;
     let selectedLang = document.getElementById('scripting-lang').value;
     let selectedMethod = document.getElementById('http-method').value;
+
+    // Create user identification for LogRocket
+    LogRocket.identify(data.name || 'ANONYMOUS_USER', {
+        name: data.name || 'Anonymous',
+    });
 
     const action = endpoints[selectedLang];
     if (!action) throw new Error('Invalid language selected! Please stick to the original dropdown options.');
@@ -58,3 +68,4 @@ function sendRequest(event){
 function getFormData(form){
     return Object.fromEntries(new FormData(form).entries());
 }
+

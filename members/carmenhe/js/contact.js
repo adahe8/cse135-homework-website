@@ -1,3 +1,7 @@
+// LogRocket analytics set up
+import LogRocket from 'logrocket';
+LogRocket.init('ukfmeg/literallycreatessite');
+
 let user = document.getElementById("name");
 let email = document.getElementById("email");
 let comment = document.getElementById("message");
@@ -166,6 +170,12 @@ contactForm.addEventListener("submit", event => {
     event.preventDefault();
     error_field.value = JSON.stringify(form_errors);
     showInfo();
+    // create user identification for LogRocket
+    LogRocket.identify(user.value || 'ANONYMOUS_USER', {
+        name: user.value || 'Anonymous',
+        email: email.value || 'No email provided',
+    });
+    contactForm.submit();
     return;
 })
 
