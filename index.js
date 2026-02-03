@@ -65,3 +65,10 @@ function getFormData(form){
     return Object.fromEntries(new FormData(form).entries());
 }
 
+
+// simple analytics custom event for all submit button clicks
+document.getElementsByTagName('input').submit.forEach(button => {
+    button.addEventListener('click', () => {
+        sa_event('request_submission_click');
+    });
+});
