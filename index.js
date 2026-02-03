@@ -17,8 +17,8 @@ function sendRequest(event){
     let selectedMethod = document.getElementById('http-method').value;
 
     // Create user identification for LogRocket
-    LogRocket.identify(data.name || 'ANONYMOUS_USER', {
-        name: data.name || 'Anonymous',
+    LogRocket.identify(form.name || 'ANONYMOUS_USER', {
+        name: form.name || 'Anonymous',
     });
 
     const action = endpoints[selectedLang];
