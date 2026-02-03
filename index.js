@@ -11,10 +11,11 @@ form.addEventListener('submit', sendRequest);
 function sendRequest(event){
     event.preventDefault();
 
-    const data = getFormData(form);
     const encodeAsJSON = document.querySelector('input[name="json"]').checked;
     let selectedLang = document.getElementById('scripting-lang').value;
     let selectedMethod = document.getElementById('http-method').value;
+    document.getElementById('override').value = selectedMethod;
+    const data = getFormData(form);
 
     // Create user identification for LogRocket
     LogRocket.identify(form.name || 'ANONYMOUS_USER', {
@@ -27,7 +28,6 @@ function sendRequest(event){
     const action = endpoints[selectedLang];
     if (!action) throw new Error('Invalid language selected! Please stick to the original dropdown options.');
 
-    document.getElementById('override').value = selectedMethod;
     if (selectedMethod === 'PUT' || selectedMethod === 'DELETE') {
         form.method = 'POST';
     } else if (selectedMethod === 'GET' || selectedMethod === 'POST'){
