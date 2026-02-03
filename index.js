@@ -27,8 +27,8 @@ function sendRequest(event){
     const action = endpoints[selectedLang];
     if (!action) throw new Error('Invalid language selected! Please stick to the original dropdown options.');
 
+    document.getElementById('override').value = selectedMethod;
     if (selectedMethod === 'PUT' || selectedMethod === 'DELETE') {
-        document.getElementById('override').value = selectedMethod;
         form.method = 'POST';
     } else if (selectedMethod === 'GET' || selectedMethod === 'POST'){
         form.method = selectedMethod;
@@ -54,7 +54,7 @@ function sendRequest(event){
         .then(data => {
             // Display or process the JSON response
             console.log('Response:', data);
-            document.getElementById('results').innerHTML += data;
+            document.getElementById('results').innerHTML = data;
         })
         .catch(error => {
             console.error('Error:', error);
