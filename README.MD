@@ -1,29 +1,14 @@
-# CSE135 WI26 Homework Center
+# CSE135 WI26 Homework 2
 ## Group Members
 Ada He  
 Carmen He  
-## Server Information
-Droplet Name: sourdough-library  
-IP address: 159.89.132.244  
+## Server & Domain Information
+Droplet Name: ubuntu-s-1vcpu-2gb-70gb-intel-sfo3-homework
+IP address: 209.38.67.198  
 ### Grader Login
 Username: grader  
-Password: graderaccount!  
-## Hosted Site 
-Visit [https://randomain.site](our homework site)!  
-grader login: grader  
-password: grading  
-### Autodeploy
-Set up through tracking history in special repository of bare copy in remote server, then cloning in the repository and and linking it to push to production copy (the bare copy). The `post-receive` github hook runs scripts that would affect the corresponding index.html page in the randomain.site file. 
-
-## Process Documentation
-![initial Apache 2 default page](images/setup/intial-index.png)  
-![edited index page](images/setup/modified-index.png)  
-![validated copied pages](images/setup/validator-initial.png)  
-![collector and reporting pages also hosted](images/setup/vhosts-verify.png)  
-![verified to use https](images/setup/SSL-verify.png)
-## Part 3 Explanations
-### Step 5
-We chose to enable mod_deflate to compress pages delivered to client. By checking the configuration file located at /etc/apache2/mods-enabled/deflate.conf in our server, we confirm that the deflate module is compressing html, css, and javascript files. After this module is enabled, we can see on the client side through dev tools that the HTTP response for the main html document of the site contains the header `Content-Type: gzip`, indicating that compression is happening. Compared to the resources delivered (61.5 kB), there is little difference in size after compression, which is expected at this stage of development, where only a few requests are made for relatively small files.
-
-### Step 6
-To obfuscate information about the server in response headers, which can expose information that can be exploited on the client side, we first changed the default security configuration (security.conf) to hide the server signature (ServerSignature Off) which discloses the server version and virtual host name. Then we enabled the mod_security2 module, which includes different security features, including SecServerSignature, which hides server details in a custom alias that we set to “CSE135 Server”.
+Password: grading!  
+### Domain
+Visit [https://literallycreates.site/]
+## Third Party Analytics Free Choice Platform (Part 3.3)
+We chose to set up monitoring with Simple Analytics for our 3rd analytics platform. We were compelled by its commitment to user privacy, its reported ease of use, efficiency, and its cost effectiveness. Compared to Google Analytics and LogRocket, the user interface is more minimal and therefore easier to learn, and will not assign cookies to users of the sites they analyze, making it more privacy-forward. However, this means it also has a lot less detail. The central dashboard predominantly tracks user activity through visualizations. Location positioning is general, and user information is not as invasive or specific as LogRocket, as we do not keep profiles of user information that is not intentionally disclosed, nor save visual recordings of their actions. It is quite easy to customize user events to track using client-side javascript, but again, limited information is recorded. Overall, it seems that Simple Analytics is a great alternative  for static sites and smaller web projects, like blogs and personal portfolios, where the full functionality of more thorough and invasive analytics platforms are not necessary.
