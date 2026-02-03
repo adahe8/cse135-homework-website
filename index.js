@@ -2,7 +2,7 @@ const form = document.getElementById('echo-form');
 const endpoints = {
     'PHP': '/cgi-bin/echo-php.php',
     'Ruby': '/cgi-bin/echo-ruby.rb',
-    'Node.js': '/cgi-bin/echo-node-express.js'
+    'Python': '/cgi-bin/echo-python.py'
 }
 
 form.addEventListener('submit', sendRequest);
@@ -16,13 +16,15 @@ function sendRequest(event){
     let selectedMethod = document.getElementById('http-method').value;
 
     const action = endpoints[selectedLang];
-    if (!action) throw new Error('Invalid language selected! Please stick to dropdown options.');
+    if (!action) throw new Error('Invalid language selected! Please stick to the original dropdown options.');
 
     if (selectedMethod === 'PUT' || selectedMethod === 'DELETE') {
         document.getElementById('override').value = selectedMethod;
         form.method = 'POST';
-    } else {
+    } else if (selectedMethod === 'GET' || selectedMethod === 'POST'){
         form.method = selectedMethod;
+    } else {
+         throw new Error('Invalid request type! Please stick to the original dropdown options.');
     }
     form.action = action;
     
@@ -43,8 +45,7 @@ function sendRequest(event){
         .then(data => {
             // Display or process the JSON response
             console.log('Response:', data);
-            document.getElementById('results').innerHTML += 
-                `<p>${JSON.stringify(data, null, 2)}</p>`;
+            document.getElementById('results').innerHTML += data;
         })
         .catch(error => {
             console.error('Error:', error);

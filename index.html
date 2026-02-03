@@ -116,24 +116,24 @@
                             <select id="scripting-lang">
                                 <option value="PHP">PHP</option>
                                 <option value="Ruby">Ruby on Rails</option>
-                                <option value="Node.js">Node.js with Express</option>
+                                <option value="Python">Python</option>
                             </select>
                             <label for="http-method">Set HTTP method.</label>
-                            <select id="http-method">
+                            <select name="http-method" id="http-method">
                                 <option value="GET">GET</option>
                                 <option value="POST">POST</option>
                                 <option value="PUT">PUT</option>
                                 <option value="DELETE">DELETE</option>
                             </select>
                             <input type="hidden" name="_method" id="override" />
-                            <label for="encoding">Optionally, enable JSON encoding.
-                                <input type="checkbox" name="json"> Encode with JSON.
+                            <label for="json">Optionally, enable JSON encoding.
+                                <input type="checkbox" name="json" id="json"> Encode with JSON.
                             </label>
                             <label>Name.
-                                <input name="name" autocomplete="on" type="text" />
+                                <input name="name" autocomplete="on" type="text" required/>
                             </label>
                             <label>Message.
-                                <input name="message" placeholder="Message for us." type="text" />
+                                <input name="message" placeholder="Message for us." type="text" required/>
                             </label>
                             <input type="submit" value="Submit"/>
                         </form>
@@ -144,37 +144,40 @@
                             <p>JavaScript disabled: only POST functionality is enabled, and data will only be url encoded.</p>
                             <details>
                                 <summary>PHP echo form.</summary>
-                                <form action="/cgi_bin/echo-php.php" method="POST">
+                                <form action="/cgi_bin/echo-php.php" method="post">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>
                                     <label>Message.
                                         <input name="message" placeholder="Message for us." type="text" />
                                     </label>
+                                    <input type="hidden" name="_method" id="override" />
                                     <input type="submit" value="Submit"/>
                                 </form>
                             </details>
                             <details>
                                 <summary>Ruby echo form.</summary>
-                                <form action="/cgi_bin/echo-ruby.rb" method="POST">
+                                <form action="/cgi_bin/echo-ruby.rb" method="post">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>
                                     <label>Message.
                                         <input name="message" placeholder="Message for us." type="text" />
                                     </label>
+                                    <input type="hidden" name="_method" id="override" />
                                     <input type="submit" value="Submit"/>
                                 </form>
                             </details>
                             <details>
-                                <summary>Node.js echo form.</summary>
-                                <form action="/cgi_bin/echo-node-express.php" method="POST">
+                                <summary>Python echo form.</summary>
+                                <form action="/cgi_bin/echo-python.py" method="post">
                                     <label>Name.
                                         <input name="name" autocomplete="on" type="text" />
                                     </label>
                                     <label>Message.
                                         <input name="message" placeholder="Message for us." type="text" />
                                     </label>
+                                    <input type="hidden" name="_method" id="override" />
                                     <input type="submit" value="Submit"/>
                                 </form>
                             </details>
